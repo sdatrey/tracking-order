@@ -10,7 +10,7 @@ import { MatFormFieldControl } from "@angular/material/form-field";
 })
 export class SignupComponent implements OnInit {
   signupForm: FormGroup;
-  submitted: boolean = false;
+  submitted = false;
   constructor(private router: Router) { }
 
   ngOnInit(): void {
@@ -18,16 +18,14 @@ export class SignupComponent implements OnInit {
       email : new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', [Validators.required]),
       confirmPassword: new FormControl('', [Validators.required])
-    })
-   
+    });
   }
 onSubmit() {
-  
-  if(this.signupForm.valid){
+  if (this.signupForm.valid){
     this.submitted = true;
   }
   else{
-    return
+    return;
   }
 }
 
