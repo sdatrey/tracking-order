@@ -10,14 +10,16 @@ import { SignupComponent } from './components/auth/signup/signup.component';
 import { MatButtonModule } from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatNativeDateModule} from '@angular/material/core';
+import { MatInputModule } from '@angular/material/input';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboradComponent,
     LoginComponent,
-    SignupComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +30,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     MatIconModule,
     FormsModule, 
     ReactiveFormsModule,
-    MatFormFieldModule
+    MatNativeDateModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]

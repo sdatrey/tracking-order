@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { MatFormFieldControl } from "@angular/material/form-field";
 
 @Component({
   selector: 'app-signup',
@@ -9,24 +10,25 @@ import { Router } from '@angular/router';
 })
 export class SignupComponent implements OnInit {
   signupForm: FormGroup;
-  hide: true;
+  submitted: boolean = false;
   constructor(private router: Router) { }
 
   ngOnInit(): void {
     this.signupForm = new FormGroup({
       email : new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', [Validators.required]),
-      username: new FormControl('', [Validators.required])
+      confirmPassword: new FormControl('', [Validators.required])
     })
    
   }
-  signUp(form: NgForm){
-    if(this.signupForm.invalid){
-      return false;
-    }
-    else{
-      this.router.navigate(['/'])
-    }
+onSubmit() {
+  
+  if(this.signupForm.valid){
+    this.submitted = true;
   }
+  else{
+    return
+  }
+}
 
 }

@@ -1,33 +1,18 @@
-<mat-card>
-  <form (submit)="signUp(signUpForm)" #signUpForm="ngForm">
-      <mat-form-field>
-          <input type="text"
-          name="name"
-          ngModel
-          matInput
-          placeholder="Name" 
-          required
-          #nameInput="ngModel">  
-          <mat-error *ngIf="nameInput.invalid">Please Enter a valid Name</mat-error>
-</mat-form-field>  
-      <mat-form-field>
-                  <input type="email"
-                  name="email"
-                  ngModel
-                  matInput
-                  placeholder="Email address" 
-                  required
-                  #emailInput="ngModel">  
-                    <mat-error *ngIf="emailInput.invalid">Please Enter a valid Email</mat-error>
-      </mat-form-field>  
-      <mat-form-field>
-          <input matInput type="password" name="password" required #passwordInput="ngModel" ngModel placeholder="Password">
-              <mat-error *ngIf="passwordInput.invalid">Please enter a valid Password</mat-error>
-      </mat-form-field> 
-      <mat-form-field>
-        <input matInput type="confirmpassword" name="confirmpassword" required #passwordInput="ngModel" ngModel placeholder="Confirm Password">
-            <mat-error *ngIf="passwordInput.invalid">Please enter a valid Password</mat-error>
-    </mat-form-field> 
-      <button mat-raised-button color="accent" type="submit">Signup</button>
-  </form>
-</mat-card>
+<form [formGroup] = "signupForm" (ngSubmit)="onSubmit()">
+  <div class="modal"> 
+  <div class="card">
+    <div class="title">Sign up</div>
+    <div class="input-group">
+      <input type="text" formControlName="email" name="email" required placeholder="email"/>
+      <span hidden="!(email.dirty && email.invalid)">Not a valid credentials</span>
+    </div>
+    <div class="input-group">
+      <input type="text" formControlName="password" name="password" required placeholder="password"/>
+    </div>
+     <div class="input-group">
+      <input type="text" placeholder="password confirm" formControlName="confirmPassword" name="confirmPassword" required/>
+    </div>
+      <button mat-raised-button class="submit" style="background-color: #1fd086;">Submit</button>
+  </div>
+</div>
+</form>
