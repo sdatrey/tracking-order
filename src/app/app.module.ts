@@ -12,6 +12,9 @@ import {MatIconModule} from '@angular/material/icon';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatNativeDateModule} from '@angular/material/core';
 import { MatInputModule } from '@angular/material/input';
+import { HeaderComponent } from './components/shared/header/header.component';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import { CustomerDashboardComponent } from './components/customer-dashboard/customer-dashboard.component';
 
 
 @NgModule({
@@ -19,7 +22,9 @@ import { MatInputModule } from '@angular/material/input';
     AppComponent,
     DashboradComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    HeaderComponent,
+    CustomerDashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -28,10 +33,11 @@ import { MatInputModule } from '@angular/material/input';
     MatCardModule,
     MatButtonModule,
     MatIconModule,
-    FormsModule, 
+    FormsModule,
     ReactiveFormsModule,
     MatNativeDateModule,
-    MatInputModule
+    MatInputModule,
+    MatToolbarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

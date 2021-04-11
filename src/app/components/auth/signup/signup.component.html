@@ -1,5 +1,5 @@
 <form [formGroup] = "signupForm" (ngSubmit)="onSubmit()">
-  <div class="modal"> 
+  <div class="modal">
   <div class="card">
     <div class="title">Sign up</div>
     <div class="input-group">
@@ -8,9 +8,19 @@
     </div>
     <div class="input-group">
       <input type="text" formControlName="password" name="password" required placeholder="password"/>
+      <div *ngIf="f.password.touched && f.password.invalid" class="alert alert-danger">
+        <div *ngIf="f.password.errors.required">Password is required.</div>
+      </div>
     </div>
      <div class="input-group">
       <input type="text" placeholder="password confirm" formControlName="confirmPassword" name="confirmPassword" required/>
+       <div *ngIf="f.confirmPassword.touched && f.confirmPassword.invalid" class="alert alert-danger">
+         <div *ngIf="f.confirmPassword.errors.required">Password is required.</div>
+         <div *ngIf="f.confirmPassword.errors.ConfirmedValidator">Password and Confirm Password must be match.</div>
+       </div>
+       <div class="input-group">
+         <input (keyup)="onKey(Role.value)" #Role  type="text" placeholder="Type your Role" formControlName="Role" required>
+       </div>
     </div>
       <button mat-raised-button class="submit" style="background-color: #1fd086;">Submit</button>
   </div>

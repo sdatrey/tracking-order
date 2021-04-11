@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { MatFormFieldControl } from "@angular/material/form-field";
+import {ConfirmedValidator} from '../../../validators/confirm-equal-validator';
 
 @Component({
   selector: 'app-signup',
@@ -17,16 +17,23 @@ export class SignupComponent implements OnInit {
     this.signupForm = new FormGroup({
       email : new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', [Validators.required]),
-      confirmPassword: new FormControl('', [Validators.required])
+      Role: new FormControl('', [Validators.required]),
+      confirmPassword: new FormControl('', [Validators.required]
+        )
     });
   }
 onSubmit() {
   if (this.signupForm.valid){
-    this.submitted = true;
+    console.log(this.signupForm.value);
   }
   else{
     return;
   }
 }
-
+  get f(){
+    return this.signupForm.controls;
+  }
+  onKey(value: string){
+    console.log(value);
+  }
 }
